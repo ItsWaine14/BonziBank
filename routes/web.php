@@ -20,3 +20,13 @@ Route::middleware(['auth'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+use App\Http\Controllers\TransactionController;
+
+Route::get('/transaction', [TransactionController::class, 'index'])
+    ->name('transaction');
+
+    Route::post('/withdraw', [TransactionController::class, 'withdraw'])
+        ->name('withdraw');
+    Route::post('/deposit', [TransactionController::class, 'deposit'])
+        ->name('deposit');
