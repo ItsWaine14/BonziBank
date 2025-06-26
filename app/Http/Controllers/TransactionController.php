@@ -55,18 +55,16 @@ class TransactionController extends Controller
         ]);
 
         $recipient = User::where('email', $request->recipient_email)->first();
-        
+        $sender = Auth::user();
+        $balance = Transaction::where('user_id', $sender->id)
+            ->sum(DB::raw("CASE WHEN type = 'deposit' THEN amount WHEN type = 'withdraw' THEN -amount ELSE 0 END"));
+
         if(!$recipient){
             return back()->with('error', "Email does not exist.");
         }
         if($recipient->id === Auth::id()){
             return back()->with('error', "Cannot transfer money to your own account.");
         }
-
-        $sender = Auth::user();
-        $balance = Transaction::where('user_id', $sender->id)
-            ->sum(DB::raw("CASE WHEN type = 'deposit' THEN amount WHEN type = 'withdraw' THEN -amount ELSE 0 END"));
-
         if($balance < $request->amount){
             return back()->with('error', "Insufficient balance."); //: ₱" . $balance
         }

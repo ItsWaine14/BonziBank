@@ -23,7 +23,7 @@
                 {{--<x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" /> --}}
                 <a href="{{ route('balance') }}">
                     <button class="bg-white text-black font-semibold py-2 px-4 rounded-xl shadow transition">
-                        Balance
+                        Check Balance
                     </button>
                 </a>
             </div>
