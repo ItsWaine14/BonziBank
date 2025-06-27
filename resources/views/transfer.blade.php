@@ -4,6 +4,7 @@
     <h2 class="text-2xl font-bold mb-6 text-center">
         Money Transfer
     </h2>
+    {{-- For convenience w/o having to go to check balance (remove if not planning to) --}}
     <h3 class="text-xl font-bold mb-6 text-center">
         Balance: ₱{{ number_format($balance, 2) }}
     </h3>
@@ -20,7 +21,7 @@
         </div>
     @endif
 
-    {{-- FRONT END STUFFS --}}
+    {{-- Money Transfer Form --}}
     <form method="POST" action="{{ route('transfer') }}" class="mb-6">
         @csrf
         <div class="mb-4">
