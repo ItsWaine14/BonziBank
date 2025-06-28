@@ -7,6 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::view('/about', 'about')->name('about');
+
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -30,3 +33,5 @@ Route::get('/transaction', [TransactionController::class, 'index'])
         ->name('withdraw');
     Route::post('/deposit', [TransactionController::class, 'deposit'])
         ->name('deposit');
+
+
