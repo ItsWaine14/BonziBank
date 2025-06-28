@@ -1,10 +1,15 @@
 <x-layouts.app :title="'Transactions'">
 
 <div class="max-w-md mx-auto mt-10 bg-black p-6 rounded-xl shadow-lg">
-    <h2 class="text-2xl font-bold mb-6 text-center">Transactions</h2>
+    <h2 class="text-2xl font-bold mb-6 text-center">
+        Transactions
+    </h2>
+    <h3 class="text-xl font-bold mb-6 text-center">
+        Balance: ₱{{ number_format($balance, 2) }}
+    </h3>
 
     @if(session('message'))
-        <div class="mb-4 p-3 text-green-800 rounded-lg">
+        <div class="mb-4 p-3 text-green-600 rounded-lg">
             {{session('message')}}
         </div>
     @endif

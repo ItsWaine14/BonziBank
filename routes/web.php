@@ -9,7 +9,6 @@ Route::get('/', function () {
 
 Route::view('/about', 'about')->name('about');
 
-
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -27,11 +26,18 @@ require __DIR__.'/auth.php';
 use App\Http\Controllers\TransactionController;
 
 Route::get('/transaction', [TransactionController::class, 'index'])
-    ->name('transaction');
+    ->name('transaction')->middleware('auth');
 
     Route::post('/withdraw', [TransactionController::class, 'withdraw'])
-        ->name('withdraw');
+        ->name('withdraw')->middleware('auth');
     Route::post('/deposit', [TransactionController::class, 'deposit'])
-        ->name('deposit');
+        ->name('deposit')->middleware('auth');
 
+Route::get('/balance', [TransactionController::class, 'balance'])
+    ->name('balance')->middleware('auth');
 
+Route::get('/transfer', [TransactionController::class, 'transferForm'])
+    ->name('transferForm')->middleware('auth');
+    
+    Route::post('/transfer', [TransactionController::class, 'transfer'])
+        ->name('transfer')->middleware('auth');
