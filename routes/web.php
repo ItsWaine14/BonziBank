@@ -38,6 +38,8 @@ Route::get('/balance', [TransactionController::class, 'balance'])
 
 Route::get('/transfer', [TransactionController::class, 'transferForm'])
     ->name('transferForm')->middleware('auth');
-    
+
     Route::post('/transfer', [TransactionController::class, 'transfer'])
         ->name('transfer')->middleware('auth');
+
+Route::view('/card', 'card')->name('card');
