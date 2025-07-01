@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
     @livewireStyles
 </head>
 <body class="bg-gradient-to-b from-[#dcd6f7] to-[#a6b1e1] text-[#1b1b18] min-h-screen flex flex-col">
@@ -51,17 +52,44 @@
                         <br />
                         <p class="text-sm">Convert World Currencies Here!</p>
                     </div>
-                    <a href="">
+                    <a href="{{ route('currency') }}">
                         <button class="mt-6 w-fit self-start rounded-md bg-[#ffca22] px-10 py-2 text-sm font-medium text-[#424874] shadow hover:bg-[#8e9ed6]">
                             Convert
                         </button>
                     </a>
                 </div>
             </div>
+
+            <br>
+            <br>
+
+            <h1 class="text-2xl font-bold text-center ">Available Cards!</h1>
+        <x-carousel />
     </main>
 
 <x-layouts.footer />
 
-    @livewireScripts
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ @livewireScripts
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Swiper(".default-carousel", {
+                loop: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        });
+
+    </script>
 </body>
 </html>

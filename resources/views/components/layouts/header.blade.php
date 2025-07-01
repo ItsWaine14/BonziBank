@@ -13,7 +13,7 @@
                     <nav aria-label="Global">
                         <ul class="flex items-center gap-15 text-sm">
                             <li><a class="text-[#dcd6f7] hover:text-[#ffca22]" href="{{ route('about') }}">About Us</a></li>
-                            <li><a class="text-[#dcd6f7] hover:text-[#ffca22]" href="#">Deals</a></li>
+                            <li><a class="text-[#dcd6f7] hover:text-[#ffca22]" href="{{ route('currency') }}">Conversion</a></li>
                             <li><a class="text-[#dcd6f7] hover:text-[#ffca22]" href="{{ route('card') }}">Cards</a></li>
                         </ul>
                     </nav>

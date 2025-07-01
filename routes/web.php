@@ -43,3 +43,8 @@ Route::get('/transfer', [TransactionController::class, 'transferForm'])
         ->name('transfer')->middleware('auth');
 
 Route::view('/card', 'card')->name('card');
+
+Route::get('/currency', function () {
+    return view('currency');
+})->name('currency');
+
