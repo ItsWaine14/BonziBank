@@ -4,7 +4,7 @@
     <input wire:model="amount" type="number" step="0.01" placeholder="Amount" class="w-full border p-2 rounded bg-accent-foreground text-[#424874]" />
 
     <div class="flex gap-2">
-        <select wire:model="to" class="w-1/2 border border-[#424874] bg-[#dcd6f7] text-[#1b1b18] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#ffca22]">
+        <select wire:model="from" class="w-1/2 border border-[#424874] bg-[#dcd6f7] text-[#1b1b18] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#ffca22]">
             <option value="USD">USD - US Dollar</option>
             <option value="PHP">PHP - Philippine Peso</option>
             <option value="EUR">EUR - Euro</option>
