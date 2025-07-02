@@ -29,20 +29,20 @@ class TransactionController extends Controller
         $balance = $this->getBalance();
         return view('transaction', ['balance' => $balance]);
     }
-    
+
     public function withdraw(Request $request){
         $amount = $request->input('amount');
-        
+
         Transaction::create(['user_id' => Auth::id(), 'type' => 'withdraw', 'amount' => $amount,]);
-        
+
         return redirect()->back()->with('message', "Withdraw ₱$amount successfully.");
     }
-    
+
     public function deposit(Request $request){
         $amount = $request->input('amount');
-        
+
         Transaction::create(['user_id' => Auth::id(), 'type' => 'deposit', 'amount' => $amount,]);
-        
+
         return redirect()->back()->with('message', "Deposited ₱$amount successfully.");
     }
 

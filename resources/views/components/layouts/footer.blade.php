@@ -17,10 +17,10 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-1 text-sm font-semibold text-[#dcd6f7] uppercase ">Follow us</h2>
+                        <h2 class="mb-1 text-sm font-semibold text-[#dcd6f7] uppercase ">Repository</h2>
                         <ul class="text-[#a6b1e1]  font-medium">
                             <li class="mb-4">
-                                <a href="hhttps://github.com/ItsWaine14/BonziBank" class="hover:underline ">Github</a>
+                                <a href="https://github.com/ItsWaine14/BonziBank" class="hover:underline ">Github</a>
                             </li>
                         </ul>
                     </div>

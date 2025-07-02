@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <title>Bonzi Bank</title>
@@ -8,7 +8,8 @@
 </head>
 
 <x-layouts.header />
-<body class="bg-[#dcd6f7] text-[#1b1b18] - min-h-screen flex flex-col">
+<body class="bg-gradient-to-b from-[#dcd6f7] to-[#a6b1e1] text-[#1b1b18] dark:from-[#1b1b18] dark:to-[#424874] dark:text-[#dcd6f7] min-h-screen flex flex-col transition-colors">
+
 
     <div class="flex items-center justify-center flex-grow">
         @livewire('currency-converter')

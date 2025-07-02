@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="">
+
 <head>
     <meta charset="UTF-8">
     <title>Bonzi Bank - Cards</title>
@@ -24,7 +26,7 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-b from-[#dcd6f7] to-[#a6b1e1] text-[#1b1b18] min-h-screen flex flex-col">
+<body class="bg-gradient-to-b from-[#dcd6f7] to-[#a6b1e1] text-[#1b1b18] dark:from-[#1b1b18] dark:to-[#424874] dark:text-[#dcd6f7] min-h-screen flex flex-col transition-colors duration-200">
 
     <x-layouts.header />
 
@@ -34,22 +36,22 @@
         <div class="swiper default-carousel">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="bg-[#a6b1e1] rounded-2xl h-96 flex justify-center items-center text-center">
+                    <div class="rounded-2xl h-96 flex justify-center items-center text-center">
                         <img src="{{ asset('Cards/1.png') }}" alt="Card Image" class="w-140 h-auto object-contain" />
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="bg-[#a6b1e1] rounded-2xl h-96 flex justify-center items-center">
+                    <div class="rounded-2xl h-96 flex justify-center items-center">
                         <img src="{{ asset('Cards/2.png') }}" alt="Card Image" class="w-140 h-auto object-contain" />
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="bg-[#a6b1e1] rounded-2xl h-96 flex justify-center items-center">
+                    <div class="rounded-2xl h-96 flex justify-center items-center">
                         <img src="{{ asset('Cards/3.png') }}" alt="Card Image" class="w-140 h-auto object-contain" />
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="bg-[#a6b1e1] rounded-2xl h-96 flex justify-center items-center">
+                    <div class="rounded-2xl h-96 flex justify-center items-center">
                         <img src="{{ asset('Cards/4.png') }}" alt="Card Image" class="w-140 h-auto object-contain" />
                     </div>
                 </div>

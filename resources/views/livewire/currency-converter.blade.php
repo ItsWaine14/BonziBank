@@ -1,7 +1,7 @@
 <div class="max-w-md p-6 mx-auto bg-[#424874] shadow-md rounded space-y-4 text-[#dcd6f7]">
     <h2 class="text-xl font-bold">Currency Converter</h2>
 
-    <input wire:model="amount" type="number" step="0.01" placeholder="Amount" class="w-full border p-2 rounded bg-accent-foreground text-[#424874]" />
+    <input wire:model="amount" type="number" step="0.01" placeholder="Amount" class="w-full border p-2 rounded bg-accent-foreground text-[#424874] dark:text-[#dcd6f7]" />
 
     <div class="flex gap-2">
         <select wire:model="from" class="w-1/2 border border-[#424874] bg-[#dcd6f7] text-[#1b1b18] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#ffca22]">
@@ -11,6 +11,7 @@
             <option value="JPY">JPY - Japanese Yen</option>
             <option value="KRW">KRW - South Korean Won</option>
             <option value="SGD">SGD - Singapore Dollar</option>
+            <option value="AUD">AUD - Australian Dollar</option>
 
         </select>
 
@@ -21,6 +22,7 @@
             <option value="JPY">JPY - Japanese Yen</option>
             <option value="KRW">KRW - South Korean Won</option>
             <option value="SGD">SGD - Singapore Dollar</option>
+            <option value="AUD">AUD - Australian Dollar</option>
 
         </select>
     </div>
