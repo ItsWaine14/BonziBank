@@ -1,9 +1,9 @@
 <x-layouts.app :title="'Transactions'">
 
-<div class="max-w-md mx-auto mt-10 bg-black p-6 rounded-xl shadow-lg">
-    <h2 class="text-2xl font-bold mb-6 text-center">
+<div class="max-w-md mx-auto mt-10 bg-[#424874] text-[#dcd6f7] p-6 rounded-xl shadow-lg ">
+    <h1 class="text-3xl font-bold mb-6 text-center">
         Transactions
-    </h2>
+    </h1>
     {{-- For convenience w/o having to go to check balance (remove if not planning to) --}}
     <h3 class="text-xl font-bold mb-6 text-center">
         Balance: ₱{{ number_format($balance, 2) }}
@@ -26,7 +26,7 @@
             <input type="number" name="amount" id="withdraw_amount" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2">
         </div>
 
-        <button type="submit" class="w-full bg-white text-black font-semibold py-2 px-4 rounded-xl">
+        <button type="submit" class="w-full bg-white text-black font-semibold py-2 px-4 rounded-xl cursor-pointer">
             Withdraw
         </button>
     </form>
@@ -42,7 +42,7 @@
             <input type="number" name="amount" id="deposit_amount" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2">
         </div>
 
-        <button type="submit" class="w-full bg-white text-black font-semibold py-2 px-4 rounded-xl">
+        <button type="submit" class="w-full bg-white text-black font-semibold py-2 px-4 rounded-xl cursor-pointer">
              Deposit
         </button>
     </form>

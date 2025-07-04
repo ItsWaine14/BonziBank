@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" class="">
+@extends('appmain')
 
-<head>
-    <meta charset="UTF-8">
-    <title>Bonzi Bank - About Us</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@section('title', 'About Bonzi Bank')
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-</head>
-
-
-<body class="bg-gradient-to-b from-[#dcd6f7] to-[#a6b1e1] text-[#1b1b18] dark:from-[#1b1b18] dark:to-[#424874] dark:text-[#dcd6f7] min-h-screen flex flex-col transition-colors duration-200">
-
-<x-layouts.header />
-
+@section('content')
     <main class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 mt-10 flex-grow">
         <div class="m-8 flex flex-wrap gap-10">
             <div class="min-w-lg flex-1 rounded-lg p-4">
@@ -34,9 +21,4 @@
 
         </div>
     </main>
-
-<x-layouts.footer />
-
-
-</body>
-</html>
+@endsection

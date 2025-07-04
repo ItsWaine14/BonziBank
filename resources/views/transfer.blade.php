@@ -1,7 +1,7 @@
 <x-layouts.app :title="'Money Transfer'">
 
-<div class="max-w-md mx-auto mt-10 bg-black p-6 rounded-xl shadow-lg">
-    <h2 class="text-2xl font-bold mb-6 text-center">
+<div class="max-w-md mx-auto mt-10 bg-[#424874] text-[#dcd6f7] p-6 rounded-xl shadow-lg">
+    <h2 class="text-3xl font-bold mb-6 text-center">
         Money Transfer
     </h2>
     {{-- For convenience w/o having to go to check balance (remove if not planning to) --}}
@@ -28,7 +28,7 @@
             <label for="recipient_email" class="block text-sm font-medium text-white mb-1">
                 Recipient Email
             </label>
-            
+
             <input type="email" name="recipient_email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2">
         </div>
 
@@ -36,10 +36,10 @@
             <label for="amount" class="block text-sm font-medium text-white mb-1">
                 Amount
             </label>
-        
+
             <input type="number" name="amount" min="1" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2">
         </div>
-        
+
         <button type="submit" class="w-full bg-white text-black font-semibold py-2 px-4 rounded-xl">
             Send
         </button>
