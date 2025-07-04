@@ -46,6 +46,22 @@
              Deposit
         </button>
     </form>
+
+    {{-- History --}}
+    @if($transactions->isNotEmpty())
+        <div class="mt-10">
+            <h3 class="text-xl font-semibold mb-4">Transaction History</h3>
+            <ul class="max-h-70 overflow-y-auto space-y-2">
+                @foreach($transactions as $i)
+                    <li class="p-3 text-black bg-gray-100 rounded-xl flex justify-between">
+                        <span class="capitalize">{{$i->type}}</span>
+                        <span>₱{{number_format($i->amount, 2)}}</span>
+                        <span class="text-sm text-gray-500">{{$i->created_at->diffForHumans()}}</span>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 </div>
 
 </x-layouts.app>

@@ -27,7 +27,12 @@ class TransactionController extends Controller
     public function index(){
         //Remove balance if not planning to display in the form
         $balance = $this->getBalance();
-        return view('transaction', ['balance' => $balance]);
+
+        $transactions = Transaction::where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('transaction', compact('transactions'), ['balance' => $balance]);
     }
 
     public function withdraw(Request $request){
