@@ -23,7 +23,11 @@ class TransactionController extends Controller
                 END"
             ));
     }
+    public function dashboardBalance(){
+        $balance = $this->getBalance();
 
+        return view('dashboard', ['balance' => $balance]);
+    }
     public function index(){
         //Remove balance if not planning to display in the form
         $balance = $this->getBalance();

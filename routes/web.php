@@ -48,3 +48,7 @@ Route::get('/currency', function () {
     return view('currency');
 })->name('currency');
 
+Route::get('/dashboard', [TransactionController::class, 'dashboardBalance'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
