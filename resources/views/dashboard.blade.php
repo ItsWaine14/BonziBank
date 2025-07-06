@@ -17,6 +17,12 @@
                 </a>
             </div>
 
+            <div class="relative h-40 overflow-hidden rounded-xl border border-[#2c2f4e] dark:border-neutral-700 flex items-center justify-center bg-[#424874]">
+                <a href="{{route('billForm')}}" class="w-full h-full flex items-center text-4xl text-[#424874] justify-center bg-[#ffca22] font-semibold rounded-xl shadow transition cursor-pointer hover:bg-[#dcd6f7]">
+                    Bills
+                </a>
+            </div>
+
 {{--
         <div class="relative h-40 overflow-hidden rounded-xl border border-[#2c2f4e] dark:border-neutral-700 flex items-center justify-center bg-[#424874]">
 

@@ -4,33 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use App\Models\Transaction;
 use App\Models\User;
 
-
 class TransactionController extends Controller
 {
-
-    private function getBalance($UID = null){
-        $UID = $UID ?? Auth::id();
-        return Transaction::where('user_id', Auth::id())
-            ->sum(DB::raw(
-                "CASE
-                WHEN type = 'deposit' THEN amount
-                WHEN type = 'withdraw' THEN -amount
-                ELSE 0
-                END"
-            ));
-    }
     public function dashboardBalance(){
-        $balance = $this->getBalance();
+        $balance = Balance::getBalance();
 
         return view('dashboard', ['balance' => $balance]);
     }
     public function index(){
         //Remove balance if not planning to display in the form
-        $balance = $this->getBalance();
+        $balance = Balance::getBalance();
 
         $transactions = Transaction::where('user_id', Auth::id())
             ->orderBy('created_at', 'desc')
@@ -56,13 +42,13 @@ class TransactionController extends Controller
     }
 
     public function balance(){
-        $balance = $this->getBalance();
+        $balance = Balance::getBalance();
         return view('balance', ['balance' => $balance]);
     }
 
     public function transferForm(){
         //Remove balance if not planning to display in the form
-        $balance = $this->getBalance();
+        $balance = Balance::getBalance();
         return view('transfer', ['balance' => $balance]);
     }
 
@@ -74,7 +60,7 @@ class TransactionController extends Controller
 
         $recipient = User::where('email', $request->recipient_email)->first();
         $sender = Auth::user();
-        $balance = $this->getBalance();
+        $balance = Balance::getBalance();
 
         if(!$recipient){
             return back()->with('error', "Email does not exist.");

@@ -1,10 +1,9 @@
-<x-layouts.app :title="'Money Transfer'">
+<x-layouts.app :title="'Bill Payment'">
 
 <div class="max-w-md mx-auto mt-10 bg-[#424874] text-[#dcd6f7] p-6 rounded-xl shadow-lg">
     <h1 class="text-3xl font-bold mb-6 text-center">
-        Money Transfer
+        Bill Payment
     </h1>
-    {{-- For convenience w/o having to go to check balance (remove if not planning to) --}}
     <h2 class="text-xl font-bold mb-6 text-center">
         Balance: ₱{{ number_format($balance, 2) }}
     </h2>
@@ -21,15 +20,20 @@
         </div>
     @endif
 
-    {{-- Money Transfer --}}
-    <form method="POST" action="{{ route('transfer') }}" class="mb-6">
+    {{-- Bill Payment --}}
+    <form method="POST" action="{{ route('billForm') }}" class="mb-6">
         @csrf
         <div class="mb-4">
-            <label for="recipient_email" class="block text-xl font-semibold mb-3">
-                Recipient Email
+            <label for="bill_id" class="block text-xl font-semibold mb-3">
+                Bill
             </label>
 
-            <input type="email" name="recipient_email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2">
+            <select name="bill_id" required class="w-full border border-[#424874] bg-[#dcd6f7] text-[#1b1b18] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#ffca22]">
+                <option value="">- Select -</option>
+                @foreach($bills as $bill)
+                    <option value="{{ $bill->id }}">{{ $bill->name }}</option>
+                @endforeach
+            </select>
         </div>
 
         <div class="mb-4">
@@ -41,7 +45,7 @@
         </div>
 
         <button type="submit" class="w-full bg-[#ffca22] hover:bg-[#dcd6f7] text-[#424874] font-semibold py-2 px-4 rounded-xl cursor-pointer">
-            Send
+            Pay
         </button>
     </form>
 </div>
