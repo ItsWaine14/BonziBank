@@ -4,7 +4,6 @@
     <h1 class="text-3xl font-bold mb-6 text-center">
         Transactions
     </h1>
-    {{-- For convenience w/o having to go to check balance (remove if not planning to) --}}
     <h2 class="text-xl font-bold mb-6 text-center">
         Balance: ₱{{ number_format($balance, 2) }}
     </h2>

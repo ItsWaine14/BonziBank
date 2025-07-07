@@ -13,7 +13,11 @@ class BillController extends Controller
     public function billForm(){
         $balance = Balance::getBalance();
         $bills = Bill::all();
-        return view('bill', compact('balance', 'bills'));
+        $paidBills = BillPayment::where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('bill', ['balance' => $balance, 'bills' => $bills, 'paidBills' => $paidBills]);
     }
 
     public function pay(Request $request){

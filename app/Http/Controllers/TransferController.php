@@ -7,12 +7,18 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Transaction;
+use App\Models\MoneyTransfer;
 
 class TransferController extends Controller
 {
     public function transferForm(){
         $balance = Balance::getBalance();
-        return view('transfer', ['balance' => $balance]);
+
+        $transfers = MoneyTransfer::where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('transfer', compact('transfers'), ['balance' => $balance]);
     }
 
     public function transfer(Request $request){
@@ -37,6 +43,8 @@ class TransferController extends Controller
 
         Transaction::create(['user_id' => $sender->id, 'type' => 'withdraw', 'amount' => $request->amount]);
         Transaction::create(['user_id' => $recipient->id, 'type' => 'deposit', 'amount' => $request->amount]);
+        MoneyTransfer::create(['user_id' => $sender->id, 'recipient_id' => $recipient->id, 'type' => 'sent', 'amount' => $request->amount]);
+        MoneyTransfer::create(['user_id' => $recipient->id, 'recipient_id' => $sender->id, 'type' => 'received', 'amount' => $request->amount]);
 
         return back()->with('success', "Transferred ₱" . number_format($request->amount, 2, '.', ',') . " to " . $recipient->email);
     }

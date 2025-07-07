@@ -48,6 +48,26 @@
             Pay
         </button>
     </form>
+
+    {{-- History --}}
+    @if($paidBills->isNotEmpty())
+        <div class="mt-10">
+            <h1 class="text-xl font-semibold mb-4">
+                Bills History
+            </h1>
+
+            <h2 class="max-h-70 overflow-y-auto space-y-2">
+                @foreach($paidBills as $i)
+                    <li class="grid grid-cols-4 gap-1 p-3 text-black bg-gray-100 rounded-xl justify-between">
+                        <span>Paid</span>
+                        <span class="text-left">₱{{number_format($i->amount, 2)}}</span>
+                        <span class="text-left">{{ $i->bill->name }}</span>
+                        <span class="text-sm text-gray-500 text-right">{{$i->created_at->diffForHumans()}}</span>
+                    </li>
+                @endforeach
+            </h2>
+        </div>
+    @endif
 </div>
 
 </x-layouts.app>
