@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
 require __DIR__.'/auth.php';
 
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\TransferController;
 use App\Http\Controllers\BillController;
 
 Route::get('/transaction', [TransactionController::class, 'index'])
@@ -37,10 +38,10 @@ Route::get('/transaction', [TransactionController::class, 'index'])
 Route::get('/balance', [TransactionController::class, 'balance'])
     ->name('balance')->middleware('auth');
 
-Route::get('/transfer', [TransactionController::class, 'transferForm'])
+Route::get('/transfer', [TransferController::class, 'transferForm'])
     ->name('transferForm')->middleware('auth');
 
-    Route::post('/transfer', [TransactionController::class, 'transfer'])
+    Route::post('/transfer', [TransferController::class, 'transfer'])
         ->name('transfer')->middleware('auth');
 
 Route::get('/bill', [BillController::class, 'billForm'])

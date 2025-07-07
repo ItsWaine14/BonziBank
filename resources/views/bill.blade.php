@@ -2,7 +2,7 @@
 
 <div class="max-w-md mx-auto mt-10 bg-[#424874] text-[#dcd6f7] p-6 rounded-xl shadow-lg">
     <h1 class="text-3xl font-bold mb-6 text-center">
-        Bill Payment
+        Bills Payment
     </h1>
     <h2 class="text-xl font-bold mb-6 text-center">
         Balance: ₱{{ number_format($balance, 2) }}

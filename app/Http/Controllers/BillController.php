@@ -33,6 +33,6 @@ class BillController extends Controller
         Transaction::create(['user_id' => $sender->id, 'type' => 'withdraw', 'amount' => $request->amount]);
         BillPayment::create(['user_id' => $sender->id, 'bill_id' => $bill->id, 'amount' => $request->amount]);
 
-        return back()->with('success', "Successfully paid ₱" . $request->amount . " for " . $bill->name);
+        return back()->with('success', "Successfully paid ₱" . number_format($request->amount, 2, '.', ',') . " for " . $bill->name);
     }
 }
